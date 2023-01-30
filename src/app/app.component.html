@@ -1,0 +1,51 @@
+<mat-drawer-container class="drawer-container">
+
+  <!-- NavBar -->
+  <mat-toolbar color="primary" class="main-nav-bar">
+    <mat-toolbar-row>
+      <span>My To Do List</span>
+      <span class="mat-spacer"></span>
+      <button mat-icon-button (click)="drawer.toggle()" class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <!-- App content -->
+  <router-outlet></router-outlet>
+  <!-- End -->
+
+  <!-- SideNav -->
+  <mat-drawer #drawer class="sidenav" mode="over" position="end">
+    <div class="sidenav-container">
+      <ul>
+        <li>
+          <a routerLink="/about" routerLinkActive="active-nav" (click)="drawer.close()">
+            <mat-icon class="mr-1">home</mat-icon> About
+          </a>
+        </li>
+        <li class="{{ isLoggedIn == true ? 'd-none' : '' }}">
+          <a routerLink="/login" routerLinkActive="active-nav" (click)="drawer.close()">
+            <mat-icon class="mr-1">account_circle</mat-icon>Register / Login
+          </a>
+        </li>
+        <li class="{{ isLoggedIn == false ? 'd-none' : '' }}">
+          <a routerLink="/admin" routerLinkActive="active-nav" (click)="drawer.close()">
+            <mat-icon class="mr-1">assessment</mat-icon>Admin
+          </a>
+        </li>
+        <li class="{{ isLoggedIn == false ? 'd-none' : '' }}">
+          <a routerLink="/todo-items" routerLinkActive="active-nav" (click)="drawer.close()">
+            <mat-icon class="mr-1">assignment</mat-icon>To Do Items
+          </a>
+        </li>
+        <li class="{{ isLoggedIn == false ? 'd-none' : '' }}" (click)="userLogout()">
+          <a routerLink="/login" routerLinkActive="active-nav" (click)="drawer.close()">
+            <mat-icon class="mr-1">assignment</mat-icon>Log Out
+          </a>
+        </li>
+      </ul>
+    </div>
+  </mat-drawer>
+</mat-drawer-container>

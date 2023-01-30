@@ -1,0 +1,28 @@
+<!-- Create a card item -->
+<!-- To do actions -->
+<section class="container">
+    <mat-card class="card-item">
+        <mat-card-header class="m-auto">
+            <mat-card-title>Register</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form (submit)="registerUser()">
+                <mat-card-content>
+                    <mat-form-field appearance="outline" class="create-card-item">
+                        <mat-label>Name</mat-label>
+                        <input matInput type="text" name="userName" [(ngModel)]="userName" />
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="create-card-item">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="text" name="userEmail" [(ngModel)]="userEmail" />
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="create-card-item">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" name="userPassword" [(ngModel)]="userPassword" />
+                    </mat-form-field>
+                    <button mat-raised-button type="submit" class="submit-btn" color="accent">Register</button>
+                </mat-card-content>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</section>

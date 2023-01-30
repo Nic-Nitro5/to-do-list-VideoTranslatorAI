@@ -1,0 +1,43 @@
+<!-- Create a todo item -->
+<!-- To do actions -->
+<section class="container">
+    <mat-card class="card-item">
+        <mat-card-header>
+            <mat-card-title>Add New To Do Item</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form (submit)="addTodo()">
+                <mat-card-content>
+                    <mat-form-field appearance="outline" class="create-card-item">
+                        <mat-label>Title</mat-label>
+                        <input matInput type="text" name="newTodoTitle" [(ngModel)]="newTodoTitle" />
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="create-card-item">
+                        <mat-label>Content</mat-label>
+                        <textarea matInput name="newTodoContent" [(ngModel)]="newTodoContent"></textarea>
+                    </mat-form-field>
+                    <button mat-raised-button type="submit" class="submit-btn" color="accent">ADD ITEM</button>
+                </mat-card-content>
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+
+    <!-- Todo list items -->
+    <mat-card *ngFor="let item of todos;" id="{{ item.id }}" class="card-item {{ item.completed ? 'done' : '' }}">
+        <mat-card-header>
+            <mat-card-title class="todo-header">
+                {{ item.title }}
+                <small>{{ item.createdAt }}</small>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-card-content>{{ item.content }}</mat-card-content>
+        </mat-card-content>
+        <mat-card-actions align="end" class="card-actions mt-1">
+            <button *ngIf="!item.completed" mat-button color="primary"
+                (click)="toggleComplete(item.id!)">COMPLETE</button>
+            <button mat-button color="warn" (click)="deleteTodo(item.id!)">REMOVE</button>
+        </mat-card-actions>
+    </mat-card>
+</section>

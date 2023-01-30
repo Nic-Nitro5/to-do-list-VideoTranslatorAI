@@ -1,0 +1,41 @@
+.todo-item {
+    max-width: 500px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.todo-actions {
+    border-top: .5px solid #efefef;
+}
+
+.todo-item.done {
+    opacity: .5;
+}
+
+.create-todo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 500px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.submit-btn{
+    width: 100%;
+}
+
+.mat-mdc-card-header{
+    display: unset !important;
+}
+
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-header small {
+    color: grey;
+    font-size: small;
+    opacity: .5;
+}
