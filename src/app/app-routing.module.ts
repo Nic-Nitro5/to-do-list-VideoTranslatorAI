@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'dashboard', component: AdminComponent},
+  {path: 'admin', component: AdminComponent},
   {path: 'todo-items', component: TodoItemsComponent},
   {path: 'about', component: AboutComponent},
 ];

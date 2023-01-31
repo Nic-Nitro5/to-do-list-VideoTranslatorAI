@@ -3,7 +3,7 @@
   <!-- NavBar -->
   <mat-toolbar color="primary" class="main-nav-bar">
     <mat-toolbar-row>
-      <span>My To Do List</span>
+      <span>{{name ? 'Welcome ' + name : 'My To Do List'}}</span>
       <span class="mat-spacer"></span>
       <button mat-icon-button (click)="drawer.toggle()" class="example-icon"
         aria-label="Example icon-button with menu icon">

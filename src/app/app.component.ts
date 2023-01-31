@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'to-do-list';
 
   isLoggedIn: boolean = false;
+  name: string = localStorage.getItem('name') ?? '';
 
   ngOnInit(): void {
     this.isLoggedIn = localStorage.getItem('userId') ? true : false;

@@ -29,6 +29,7 @@ export class LoginComponent {
           
           if(response){
             localStorage.setItem('userId', response.id);
+            localStorage.setItem('name', response.name);
             logInSuccess = true;
           }
 
