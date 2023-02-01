@@ -10,11 +10,13 @@ import { RegisterService } from 'src/app/services/api/register.service';
 })
 export class RegisterComponent {
 
+  // Creating a new user
   userName: string = "";
   userEmail: string = "";
   userPassword: string = "";
   admin: boolean = false;
 
+  // User object
   user: User = {
     name: this.userName,
     email: this.userEmail,

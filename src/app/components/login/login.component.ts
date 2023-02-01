@@ -10,11 +10,18 @@ import { Router } from "@angular/router"
 })
 export class LoginComponent {
 
+  // Empty object (container) for posting data
   data: Object = {};
+
+  // User details
   userEmail: string = "";
   userPassword: string = "";
 
   constructor(private loginService: LoginService, private router: Router) { }
+
+  ngOnit(): void {
+    localStorage.clear();
+  }
 
   loginUser() {
     if (this.userEmail.trim().length > 0 && this.userPassword.trim().length > 0) {

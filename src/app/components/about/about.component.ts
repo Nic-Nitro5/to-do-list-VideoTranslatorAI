@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
 
+  hireMe() {
+    alert('Hire me, You wont be dissapointed!');
+  }
+
 }

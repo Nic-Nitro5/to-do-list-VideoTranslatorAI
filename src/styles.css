@@ -38,6 +38,10 @@ body {
     margin-bottom: 1rem;
 }
 
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
 .m-auto {
     margin: auto;
 }

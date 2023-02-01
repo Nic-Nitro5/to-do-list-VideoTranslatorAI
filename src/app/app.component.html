@@ -41,7 +41,7 @@
           </a>
         </li>
         <li class="{{ isLoggedIn == false ? 'd-none' : '' }}" (click)="userLogout()">
-          <a routerLink="/login" routerLinkActive="active-nav" (click)="drawer.close()">
+          <a routerLinkActive="active-nav" (click)="drawer.close()">
             <mat-icon class="mr-1">assignment</mat-icon>Log Out
           </a>
         </li>

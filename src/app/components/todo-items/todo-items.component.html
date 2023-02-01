@@ -35,9 +35,10 @@
             <mat-card-content>{{ item.content }}</mat-card-content>
         </mat-card-content>
         <mat-card-actions align="end" class="card-actions mt-1">
+            <button mat-button color="secondary" (click)="translateTodo(item)" id="translateBtn">TRANSLATE</button>
             <button *ngIf="!item.completed" mat-button color="primary"
-                (click)="toggleComplete(item.id!)">COMPLETE</button>
-            <button mat-button color="warn" (click)="deleteTodo(item.id!)">REMOVE</button>
+                (click)="toggleComplete(item.id!)" id="completeBtn">COMPLETE</button>
+            <button mat-button color="warn" (click)="deleteTodo(item.id!)" id="deleteBtn">DELETE</button>
         </mat-card-actions>
     </mat-card>
 </section>

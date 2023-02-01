@@ -10,6 +10,7 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
+  // Login user
   loginUser(data: Object){
     return this.http.post<any>(`${urls.baseUrl}Auth`, data)
     .pipe(map((response: any) => {

@@ -11,6 +11,7 @@ export class RegisterService {
 
   constructor(private http: HttpClient) { }
 
+  // Post a new user
   postUser(data: User){
     return this.http.post<User>(`${urls.baseUrl}Users`, data)
     .pipe(map((response: any) => {

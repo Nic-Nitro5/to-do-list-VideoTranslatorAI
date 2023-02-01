@@ -19,9 +19,11 @@ export class AppComponent {
     document.querySelector('.mat-drawer')
   }
 
-  userLogout(): void {
+  userLogout() {
     localStorage.removeItem('userId');
     localStorage.clear();
     this.isLoggedIn = false;
+
+    return window.location.href = window.location.origin + '/login';
   }
 }

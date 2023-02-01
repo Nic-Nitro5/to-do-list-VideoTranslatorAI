@@ -15,7 +15,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatTableModule } from '@angular/material/table'
 
 // Custom components
 import { TodoItemsComponent } from './components/todo-items/todo-items.component';
@@ -31,7 +31,8 @@ import { AboutComponent } from './components/about/about.component';
     TodoItemsComponent,
     LoginComponent,
     RegisterComponent,
-    AboutComponent
+    AboutComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +46,8 @@ import { AboutComponent } from './components/about/about.component';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

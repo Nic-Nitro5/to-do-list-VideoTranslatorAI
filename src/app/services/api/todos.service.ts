@@ -16,6 +16,7 @@ export class TodosService {
 
   constructor(private http: HttpClient) { }
 
+  // Get all todos by id
   getTodos(id: string) {
     return this.http.get<any>(`${urls.baseUrl}Todos/UserTodos/${id}`)
       .pipe(map((response: any) => {
@@ -23,6 +24,7 @@ export class TodosService {
       }));
   }
 
+  // Post todo
   postTodo(data: Todo) {
     return this.http.post<Todo>(`${urls.baseUrl}Todos`, data)
       .pipe(map((response: any) => {
