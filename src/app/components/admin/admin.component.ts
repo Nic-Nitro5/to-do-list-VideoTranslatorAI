@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/models/User';
 import { AdminService } from 'src/app/services/api/admin.service';
+import { MatDialog } from '@angular/material/dialog';
+import { HistoryComponent } from '../history/history.component';
 
 @Component({
   selector: 'app-admin',
@@ -15,7 +17,7 @@ export class AdminComponent {
   // Container for table data
   displayedColumns: string[] = [];
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private matDialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -29,6 +31,7 @@ export class AdminComponent {
 
         if (this.users.length > 0) {
           this.displayedColumns = Object.keys(this.users[0]);
+
           return this.users;
         }
         alert('No users found.');
@@ -39,5 +42,12 @@ export class AdminComponent {
         alert('An error occured!');
         console.error(error);
       }
+  }
+
+  userHistory(userId: string) {
+    this.matDialog.open(HistoryComponent,
+      {
+        data: userId
+      });
   }
 }

@@ -4,9 +4,10 @@ import { map } from 'rxjs';
 import { Todo } from 'src/app/models/TodoItem';
 import { urls } from './urls';
 
-interface completeItem {
+interface updateItem {
   id: string;
-  completed: boolean;
+  completed?: boolean;
+  translated?: boolean;
 }
 
 @Injectable({
@@ -32,13 +33,15 @@ export class TodosService {
       }));
   }
 
-  completeTodo(data: completeItem) {
-    return this.http.put<completeItem>(`${urls.baseUrl}Todos/Update/${data.id}`, data)
+  // Complete todo
+  updateTodo(data: updateItem) {
+    return this.http.put<updateItem>(`${urls.baseUrl}Todos/Update/${data.id}`, data)
     .pipe(map((response: any) => {
       return response;
     }));
   }
 
+  // Delete todo
   deleteTodo(id: string) {
     return this.http.delete<Todo>(`${urls.baseUrl}Todos/Delete/${id}`)
     .pipe(map((response: any) => {

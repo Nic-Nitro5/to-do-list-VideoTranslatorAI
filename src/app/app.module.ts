@@ -15,7 +15,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // Custom components
 import { TodoItemsComponent } from './components/todo-items/todo-items.component';
@@ -23,6 +24,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AboutComponent } from './components/about/about.component';
+import { HistoryComponent } from './components/history/history.component';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { AboutComponent } from './components/about/about.component';
     LoginComponent,
     RegisterComponent,
     AboutComponent,
-    AdminComponent
+    AdminComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { AboutComponent } from './components/about/about.component';
     MatInputModule,
     FormsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
