@@ -122,6 +122,7 @@ export class TodoItemsComponent {
     // Post the todo item to api for translation
     this.translateSerice.postTranslateTodo(this.translateTodoText)
       .subscribe(response => {
+        console.log(response)
         // Translate the title
         document.querySelector(`#${data.id} .todo-header`)!.innerHTML = response.data.translations[0].translatedText;
 

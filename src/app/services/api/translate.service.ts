@@ -13,7 +13,7 @@ export class TranslateService {
 
   // Api post to translate the todo
   postTranslateTodo(data: Object) {
-    return this.http.post<Todo>(`${urls.translateApi}`, data)
+    return this.http.post(`${urls.translateApi}`, data)
       .pipe(map((response: any) => {
         return response;
       }));
