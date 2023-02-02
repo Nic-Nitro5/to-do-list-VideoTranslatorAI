@@ -1,4 +1,4 @@
-import { environment } from '../../environments/environment';
+import { environment } from '../../environments/environments';
 
 export const urls = {
     baseUrl: "https://localhost:7037/",

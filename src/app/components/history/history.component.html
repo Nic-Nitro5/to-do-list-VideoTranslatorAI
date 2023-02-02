@@ -1,3 +1,54 @@
-<section>
-    <p>{{ data }}</p>
-</section>
+<h2 mat-dialog-title>User Activity</h2>
+<mat-dialog-content class="mat-typography">
+
+    <table *ngIf="data && data.length > 0" mat-table [dataSource]="data" class="mat-elevation-z8">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+
+        <!-- Content Column -->
+        <ng-container matColumnDef="content">
+            <th mat-header-cell *matHeaderCellDef> Content </th>
+            <td mat-cell *matCellDef="let element"> {{element.content}} </td>
+        </ng-container>
+
+        <!-- Completed Colomn -->
+        <ng-container matColumnDef="completed">
+            <th mat-header-cell *matHeaderCellDef> Completed </th>
+            <td mat-cell *matCellDef="let element"> {{element.completed}} </td>
+        </ng-container>
+
+        <!-- Translated Column -->
+        <ng-container matColumnDef="translated">
+            <th mat-header-cell *matHeaderCellDef> Has Been Translated </th>
+            <td mat-cell *matCellDef="let element"> {{element.translated}} </td>
+        </ng-container>
+
+        <!-- Created Column -->
+        <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef> Created</th>
+            <td mat-cell *matCellDef="let element"> {{element.createdAt}} </td>
+        </ng-container>
+
+        <!-- Created Column -->
+        <ng-container matColumnDef="createdBy">
+            <th mat-header-cell *matHeaderCellDef> Created By Id</th>
+            <td mat-cell *matCellDef="let element"> {{element.createdBy}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedUserColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedUserColumns;"></tr>
+    </table>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

@@ -9,8 +9,14 @@ import { Todo } from 'src/app/models/TodoItem';
 })
 export class HistoryComponent {
 
-  userHistory: Todo[] = [];
+  displayedUserColumns: string[] = [];
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: string) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Todo[]) {
+  
+    if (data != null && data.length > 0) {
+      this.displayedUserColumns = Object.keys(this.data![0]);
+    }
+
+  }
 
 }
