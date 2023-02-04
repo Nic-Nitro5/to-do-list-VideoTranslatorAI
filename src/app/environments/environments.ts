@@ -1,3 +1,3 @@
 export const environment = {
-    translateKey: '',
+    translateKey: 'AIzaSyDNb0Sx4rS54kfE29Uoj8qWvrRuOd_bHkM',
 };
