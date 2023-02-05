@@ -24,7 +24,7 @@
 
 
     <!-- Todo list items -->
-    <mat-card *ngFor="let item of todos;" id="{{ item.id }}" class="card-item {{ item.completed ? 'done' : '' }}">
+    <mat-card *ngFor="let item of todos;" class="card-item {{ item.completed ? 'done' : '' }} {{ item.id }}">
         <mat-card-header>
             <mat-card-title class="todo-header">
                 {{ item.title }}
