@@ -59,6 +59,7 @@ export class TodoItemsComponent {
     this.todosService.updateTodo({ "id": id, "completed": true })
       .subscribe(response => {
         this.getTodos();
+
         return alert('Well done mate =)');
       }),
       (error: string) => {
@@ -72,6 +73,7 @@ export class TodoItemsComponent {
     this.todosService.deleteTodo(id)
       .subscribe(response => {
         this.getTodos();
+
         return alert('Cheers to that one!');
       }),
       (error: string) => {
@@ -83,6 +85,8 @@ export class TodoItemsComponent {
   // Create new todo item
   addTodo() {
     if (this.newTodoTitle.trim().length > 0 && this.newTodoContent.trim().length > 0) {
+      document.querySelector('.spinner')?.classList.remove('d-none');
+
       this.todoItem = {
         title: this.newTodoTitle,
         content: this.newTodoContent,
@@ -96,6 +100,8 @@ export class TodoItemsComponent {
           this.newTodoTitle = "";
           this.newTodoContent = "";
           this.getTodos();
+
+          document.querySelector('.add-todo .spinner')?.classList.add('d-none');
           return alert('New todo item has been created, Be sure to finish it!');
         }),
         (error: string) => {
@@ -119,6 +125,9 @@ export class TodoItemsComponent {
       'q': [data.title, data.content, ...translateButtonNames],
       'target': "fr"
     }
+
+    document.querySelector(`[id='${data.id}'] .spinner`)?.classList.remove('d-none');
+
     // Post the todo item to api for translation
     this.translateSerice.postTranslateTodo(this.translateTodoText)
       .subscribe(response => {
@@ -128,26 +137,30 @@ export class TodoItemsComponent {
           this.todosService.updateTodo({ "id": data.id!, "translated": true })
             .subscribe(response => {
               // Translate the title
-              document.querySelector(`.${data.id} .todo-header`)!.innerHTML = translatedData.data.translations[0].translatedText;
+              document.querySelector(`[id='${data.id}'] .todo-header`)!.textContent = translatedData.data.translations[0].translatedText;
 
               // Translate the content
-              document.querySelector(`.${data.id} .mat-mdc-card-content`)!.innerHTML = translatedData.data.translations[1].translatedText;
+              document.querySelector(`[id='${data.id}'] .mat-mdc-card-content`)!.textContent = translatedData.data.translations[1].translatedText;
 
               // Translate the button in order from left to right
               // Translate button
-              document.querySelector(`.${data.id} #translateBtn`)!.innerHTML = translatedData.data.translations[2].translatedText;
+              document.querySelector(`[id='${data.id}'] #translateBtn`)!.textContent = translatedData.data.translations[2].translatedText;
               
               // Complete button
-              if( document.querySelector(`.${data.id} #completeBtn`)){
-                document.querySelector(`.${data.id} #completeBtn`)!.innerHTML = translatedData.data.translations[3].translatedText;
+              if( document.querySelector(`[id='${data.id}'] #completeBtn`)){
+                document.querySelector(`[id='${data.id}'] #completeBtn`)!.textContent = translatedData.data.translations[3].translatedText;
               }
 
               // Remove button
-              document.querySelector(`.${data.id} #deleteBtn`)!.innerHTML = translatedData.data.translations[4].translatedText;
+              document.querySelector(`[id='${data.id}'] #deleteBtn`)!.textContent = translatedData.data.translations[4].translatedText;
+
+              document.querySelector(`[id='${data.id}'] .spinner`)?.classList.add('d-none');
 
               return alert('The todo item has been translated.');
             })
         };
+
+        document.querySelector(`[id='${data.id}'] .spinner`)?.classList.add('d-none');
       }),
       (error: string) => {
         alert('An error occured!');

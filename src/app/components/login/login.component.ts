@@ -25,16 +25,18 @@ export class LoginComponent {
 
   loginUser() {
     if (this.userEmail.trim().length > 0 && this.userPassword.trim().length > 0) {
+      document.querySelector('.spinner')?.classList.remove('d-none');
+
       this.data = {
-        email: this.userEmail,
+        email: this.userEmail.toLocaleLowerCase(),
         password: this.userPassword
       }
       // Check if user credentials match any stored users
       this.loginService.loginUser(this.data)
         .subscribe(response => {
           let logInSuccess: boolean = false;
-          
-          if(response){
+
+          if (response) {
             localStorage.setItem('userId', response.id);
             localStorage.setItem('name', response.name);
             logInSuccess = true;
@@ -42,10 +44,12 @@ export class LoginComponent {
 
           if (logInSuccess !== false) {
             alert('Login Successful!');
-            
+
             // Redirect to login
             return window.location.href = window.location.origin + '/todo-items';
           }
+          
+          document.querySelector('.spinner')?.classList.add('d-none');
 
           return alert('Credentials are incorrect! Please no hacking allowed.');
         }),

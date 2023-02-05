@@ -29,9 +29,11 @@ export class RegisterComponent {
   registerUser() {
 
     if (this.userName.trim().length > 0 && this.userEmail.trim().length > 0 && this.userPassword.trim().length > 0) {
+      document.querySelector('.spinner')?.classList.remove('d-none');
+      
       this.user = {
         name: this.userName,
-        email: this.userEmail,
+        email: this.userEmail.toLocaleLowerCase(),
         password: this.userPassword,
         admin: this.admin
       };
@@ -41,6 +43,9 @@ export class RegisterComponent {
           // Clear the input fields
           this.userEmail = "";
           this.userPassword = "";
+
+          document.querySelector('.spinner')?.classList.add('d-none');
+          
           alert('User added successfully!');
           // Redirect to login page
           return this.router.navigate(['/login']);

@@ -20,7 +20,9 @@
                         <mat-label>Password</mat-label>
                         <input matInput type="password" name="userPassword" [(ngModel)]="userPassword" />
                     </mat-form-field>
-                    <button mat-raised-button type="submit" class="submit-btn" color="accent">Register</button>
+                    <button mat-raised-button type="submit" class="submit-btn" color="accent">
+                        <span>Register</span> <mat-spinner class="ml-1 spinner d-none"></mat-spinner>
+                    </button>
                 </mat-card-content>
             </form>
         </mat-card-content>

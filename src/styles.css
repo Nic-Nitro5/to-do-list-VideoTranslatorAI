@@ -47,7 +47,7 @@ body {
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 /* End */
@@ -148,6 +148,16 @@ body {
 
 .submit-btn {
     width: 100%;
+}
+
+.mat-mdc-progress-spinner.spinner{
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.spinner{
+    width: 20px !important;
+    height: 20px !important;
 }
 
 /* End */

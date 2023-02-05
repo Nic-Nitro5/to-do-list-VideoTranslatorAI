@@ -1,7 +1,7 @@
 <!-- Create a todo item -->
 <!-- To do actions -->
 <section class="container">
-    <mat-card class="card-item">
+    <mat-card class="card-item add-todo">
         <mat-card-header>
             <mat-card-title>Add New To Do Item</mat-card-title>
         </mat-card-header>
@@ -16,7 +16,7 @@
                         <mat-label>Content</mat-label>
                         <textarea matInput name="newTodoContent" [(ngModel)]="newTodoContent"></textarea>
                     </mat-form-field>
-                    <button mat-raised-button type="submit" class="submit-btn" color="accent">ADD ITEM</button>
+                    <button mat-raised-button type="submit" class="submit-btn" color="accent"><span>ADD ITEM</span> <mat-spinner class="ml-1 spinner d-none"></mat-spinner></button>
                 </mat-card-content>
             </form>
         </mat-card-content>
@@ -24,7 +24,7 @@
 
 
     <!-- Todo list items -->
-    <mat-card *ngFor="let item of todos;" class="card-item {{ item.completed ? 'done' : '' }} {{ item.id }}">
+    <mat-card *ngFor="let item of todos;" id="{{ item.id }}" class="card-item {{ item.completed ? 'done' : '' }} {{ item.id }}">
         <mat-card-header>
             <mat-card-title class="todo-header">
                 {{ item.title }}
@@ -35,10 +35,19 @@
             <mat-card-content>{{ item.content }}</mat-card-content>
         </mat-card-content>
         <mat-card-actions align="end" class="card-actions mt-1">
-            <button mat-button color="secondary" (click)="translateTodo(item)" id="translateBtn">TRANSLATE</button>
+            <button mat-button color="secondary" (click)="translateTodo(item)" id="translateBtn">
+                <span>TRANSLATE</span>
+                <mat-spinner class="ml-1 spinner d-none"></mat-spinner>
+            </button>
             <button *ngIf="!item.completed" mat-button color="primary"
-                (click)="toggleComplete(item.id!)" id="completeBtn">COMPLETE</button>
-            <button mat-button color="warn" (click)="deleteTodo(item.id!)" id="deleteBtn">DELETE</button>
+                (click)="toggleComplete(item.id!)" id="completeBtn">
+                <span>COMPLETE</span>
+                <mat-spinner class="ml-1 spinner d-none"></mat-spinner>
+            </button>
+            <button mat-button color="warn" (click)="deleteTodo(item.id!)" id="deleteBtn">
+                <span>DELETE</span>
+                <mat-spinner class="ml-1 spinner d-none"></mat-spinner>
+            </button>
         </mat-card-actions>
     </mat-card>
 </section>
