@@ -139,7 +139,7 @@ export class TodoItemsComponent {
               
               // Complete button
               if( document.querySelector(`.${data.id} #completeBtn`)){
-                document.querySelector(`#.{data.id} #completeBtn`)!.innerHTML = translatedData.data.translations[3].translatedText;
+                document.querySelector(`.${data.id} #completeBtn`)!.innerHTML = translatedData.data.translations[3].translatedText;
               }
 
               // Remove button
